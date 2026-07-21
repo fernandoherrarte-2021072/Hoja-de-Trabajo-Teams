@@ -1,21 +1,16 @@
-import http from "http";
+import * as http from "http";
+import { router } from "./routes";
 
 const servidor = http.createServer((req, res) => {
 
-    res.writeHead(200, {
-        "Content-Type": "application/json"
-    });
-
-    res.end(
-        JSON.stringify({
-            mensaje: "Servidor funcionando correctamente"
-        })
-    );
+    router(req, res);
 
 });
 
 servidor.listen(3000, () => {
 
-    console.log("Servidor ejecutándose en http://localhost:3000");
+    console.log(
+        "Servidor ejecutándose en http://localhost:3000"
+    );
 
 });

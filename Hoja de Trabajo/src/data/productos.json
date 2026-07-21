@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "id": 1,
+        "nombre": "Laptop",
+        "descripcion": "Laptop Lenovo",
+        "precio": 5000,
+        "stock": 10,
+        "categoria": "Tecnologia",
+        "estado": "Activo"
+    }
+]
