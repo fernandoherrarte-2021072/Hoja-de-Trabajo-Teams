@@ -7,5 +7,14 @@
         "stock": 10,
         "categoria": "Tecnologia",
         "estado": "Activo"
+    },
+    {
+        "id": 2,
+        "nombre": "Mouse Gamer RGB",
+        "descripcion": "Mouse actualizado",
+        "precio": 200,
+        "stock": 15,
+        "categoria": "Tecnologia",
+        "estado": "Activo"
     }
 ]

@@ -9,3 +9,18 @@ export async function obtenerProductos() {
     return JSON.parse(datos);
 
 }
+
+export async function guardarProductos(
+    productos: any[]
+) {
+
+    await writeFile(
+        ruta,
+        JSON.stringify(
+            productos,
+            null,
+            4
+        )
+    );
+
+}
