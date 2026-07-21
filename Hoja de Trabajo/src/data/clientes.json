@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "id": 1,
+        "nombre": "Fernando",
+        "apellido": "Herrarte",
+        "correo": "fernando@gmail.com",
+        "telefono": "12345678",
+        "direccion": "Zona 7",
+        "estado": "Activo"
+    }
+]
