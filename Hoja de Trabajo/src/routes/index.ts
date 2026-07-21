@@ -1,5 +1,6 @@
 import { IncomingMessage, ServerResponse } from "http";
 import { productosRoute } from "./productos";
+import { clientesRoute } from "./clientes";
 
 export async function router(
     req: IncomingMessage,
@@ -12,6 +13,13 @@ export async function router(
     );
 
     if (productos) return;
+
+    const clientes = await clientesRoute(
+        req,
+        res
+    );
+
+    if (clientes) return;
 
     res.writeHead(404, {
         "Content-Type": "application/json"
