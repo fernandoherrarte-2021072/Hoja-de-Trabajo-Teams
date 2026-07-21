@@ -25,6 +25,9 @@ export async function productosRoute(
         return true;
     }
 
+
+    //Traer productos
+    
     if (
         req.method === "GET" &&
         req.url?.startsWith("/productos/")
@@ -71,6 +74,9 @@ export async function productosRoute(
 
     }
 
+
+    //Agregar productos
+
     if (
         req.method === "POST" &&
         req.url === "/productos"
@@ -115,6 +121,8 @@ export async function productosRoute(
         return true;
 
     }
+
+    //Actualizar productos 
 
     if (
         req.method === "PUT" &&
@@ -186,6 +194,65 @@ export async function productosRoute(
 
     }
 
+    //Eliminar Productos 
+
+    if (
+        req.method === "DELETE" &&
+        req.url?.startsWith("/productos/")
+    ) {
+
+        const id = Number(
+            req.url.split("/")[2]
+        );
+
+        const productos =
+            await obtenerProductos();
+
+        const nuevos =
+            productos.filter(
+                (p: any) => p.id !== id
+            );
+
+        if (
+            productos.length ===
+            nuevos.length
+        ) {
+
+            res.writeHead(404, {
+                "Content-Type":
+                    "application/json"
+            });
+
+            res.end(
+                JSON.stringify({
+                    error:
+                        "Producto no encontrado"
+                })
+            );
+
+            return true;
+
+        }
+
+        await guardarProductos(
+            nuevos
+        );
+
+        res.writeHead(200, {
+            "Content-Type":
+                "application/json"
+        });
+
+        res.end(
+            JSON.stringify({
+                mensaje:
+                    "Producto eliminado"
+            })
+        );
+
+        return true;
+
+    }
     return false;
 
 }
